@@ -3,6 +3,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import { resolveImagePath } from "@/lib/image-path";
 
 interface PhotoFrameProps {
   src: string;
@@ -15,25 +16,6 @@ interface PhotoFrameProps {
   priority?: boolean;
 }
 
-const BASE_PATH = "/sakura-at-twenty";
-
-function resolveImagePath(path: string): string {
-  // Leave external URLs, data URLs, and other non-root paths unchanged.
-  if (
-    /^(https?:\/\/|data:|blob:)/i.test(path) ||
-    !path.startsWith("/")
-  ) {
-    return path;
-  }
-
-  // Avoid adding the base path twice.
-  if (path === BASE_PATH || path.startsWith(`${BASE_PATH}/`)) {
-    return path;
-  }
-
-  return `${BASE_PATH}${path}`;
-}
-
 export function PhotoFrame({
   src,
   fallbackSrc,
@@ -44,7 +26,7 @@ export function PhotoFrame({
   objectPosition = "center",
   priority = false,
 }: PhotoFrameProps) {
-  const [imgSrc, setImgSrc] = useState(() => resolveImagePath(src));
+  const imgSrc = resolveImagePath(src);
   const [hasError, setHasError] = useState(false);
 
   const aspectClass = {

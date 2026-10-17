@@ -27,7 +27,7 @@ export function MemoryGallery({ onNext }: MemoryGalleryProps) {
   }, []);
 
   return (
-    <section aria-label="Memory gallery scene" className="relative w-full min-h-screen py-24 px-6 flex flex-col justify-between bg-gradient-to-b from-[#20182E] via-[#30263F] to-[#251C33] text-[#FFF8F1]">
+    <section aria-label="Memory gallery scene" className="relative w-full min-h-screen py-16 sm:py-20 px-4 sm:px-6 flex flex-col justify-between bg-gradient-to-b from-[#20182E] via-[#30263F] to-[#251C33] text-[#FFF8F1]">
       {/* Background Ambience */}
       <div className="absolute inset-0 pointer-events-none opacity-20">
         <div className="absolute top-1/3 left-10 w-96 h-96 rounded-full bg-[#EAB7D0] filter blur-3xl" />
@@ -35,7 +35,7 @@ export function MemoryGallery({ onNext }: MemoryGalleryProps) {
       </div>
 
       {/* Header */}
-      <div className="relative z-10 max-w-2xl mx-auto text-center mb-10">
+      <div className="relative z-10 max-w-2xl mx-auto text-center mb-6 sm:mb-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -79,7 +79,7 @@ export function MemoryGallery({ onNext }: MemoryGalleryProps) {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           onClick={() => setSelectedPhoto(featuredPhoto)}
-          className="cursor-pointer group relative max-w-xl mx-auto rounded-3xl p-4 sm:p-6 bg-gradient-to-br from-[#FFFDF9] via-[#FAF3EC] to-[#F5E6DC] shadow-2xl border-2 border-[#EAB7D0]/50 mb-12 hover:scale-[1.02] transition-all duration-300"
+          className="cursor-pointer group relative max-w-sm mx-auto rounded-3xl p-4 sm:p-5 bg-gradient-to-br from-[#FFFDF9] via-[#FAF3EC] to-[#F5E6DC] shadow-2xl border-2 border-[#EAB7D0]/50 mb-8 sm:mb-10 hover:scale-[1.02] transition-all duration-300"
         >
           {/* Subtle gold ribbon tag */}
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#30263F] text-[#FFF8F1] text-[11px] font-semibold uppercase tracking-wider mb-3">
@@ -92,7 +92,7 @@ export function MemoryGallery({ onNext }: MemoryGalleryProps) {
             fallbackSrc={featuredPhoto.fallbackPlaceholder}
             alt={featuredPhoto.title}
             aspectRatio="portrait"
-            className="w-full max-h-[460px] rounded-2xl shadow-xl border border-[#30263F]/10"
+            className="mx-auto w-full max-w-[220px] rounded-2xl shadow-xl border border-[#30263F]/10"
             priority={true}
           />
 
@@ -111,7 +111,7 @@ export function MemoryGallery({ onNext }: MemoryGalleryProps) {
         </motion.div>
 
         {/* Varied Gallery Grid of Other Moments */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
           {BIRTHDAY_CONFIG.memories
             .filter((p) => p.id !== featuredPhoto.id)
             .map((photo, idx) => {
@@ -206,7 +206,7 @@ export function MemoryGallery({ onNext }: MemoryGalleryProps) {
       </AnimatePresence>
 
       {/* Navigation Footer */}
-      <div className="relative z-10 flex justify-center pb-6">
+      <div className="relative z-10 flex justify-center pb-24 sm:pb-6">
         <button
           onClick={onNext}
           className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#FFF8F1]/15 hover:bg-[#FFF8F1]/25 border border-[#EAB7D0]/40 backdrop-blur-md text-[#FFF8F1] text-xs uppercase tracking-widest font-semibold transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg"

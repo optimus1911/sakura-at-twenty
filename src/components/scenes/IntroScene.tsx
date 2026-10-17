@@ -15,7 +15,7 @@ export function IntroScene({ onEnter }: IntroSceneProps) {
   const introPhoto = BIRTHDAY_CONFIG.photos.scene1Intro;
 
   return (
-    <section aria-label="Introduction scene" className="relative w-full h-full min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#2B1B3A] via-[#352548] to-[#1C1226] px-6 py-20 text-center select-none">
+    <section aria-label="Introduction scene" className="relative w-full h-full min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#2B1B3A] via-[#352548] to-[#1C1226] px-4 sm:px-6 py-10 sm:py-12 lg:py-6 text-center select-none">
       {/* Layered Parallax Background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] rounded-full bg-gradient-to-tr from-[#EAB7D0]/20 via-[#DCD3F8]/20 to-transparent filter blur-3xl" />
@@ -49,7 +49,7 @@ export function IntroScene({ onEnter }: IntroSceneProps) {
 
       {/* Main Content Container */}
       <motion.div
-        className="relative z-10 max-w-4xl mx-auto flex flex-col items-center pt-8"
+        className="relative z-10 max-w-4xl mx-auto flex flex-col items-center"
         initial="hidden"
         animate="visible"
         variants={fadeInVariants}
@@ -57,7 +57,7 @@ export function IntroScene({ onEnter }: IntroSceneProps) {
         {/* Milestone Badge */}
         <motion.div
           variants={slideUpVariants}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FFF8F1]/10 border border-[#EAB7D0]/30 backdrop-blur-md mb-5 shadow-lg"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FFF8F1]/10 border border-[#EAB7D0]/30 backdrop-blur-md mb-3 sm:mb-4 shadow-lg translate-y-2"
         >
           <Sparkles className="w-3.5 h-3.5 text-[#E7CB92]" />
           <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#FFF8F1]">
@@ -68,7 +68,7 @@ export function IntroScene({ onEnter }: IntroSceneProps) {
         {/* Title */}
         <motion.h1
           variants={slideUpVariants}
-          className="text-4xl sm:text-6xl md:text-7xl font-serif font-normal text-[#FFF8F1] tracking-tight mb-2 drop-shadow-md"
+          className="text-4xl sm:text-6xl md:text-6xl font-serif font-normal text-[#FFF8F1] tracking-tight mb-1 sm:mb-2 drop-shadow-md"
         >
           Sakura at Twenty
         </motion.h1>
@@ -76,7 +76,7 @@ export function IntroScene({ onEnter }: IntroSceneProps) {
         {/* Japanese Accent & Dedication for Mansiii */}
         <motion.p
           variants={slideUpVariants}
-          className="text-lg sm:text-2xl font-handwriting text-[#EAB7D0] mb-6 tracking-wide flex items-center justify-center gap-2"
+          className="text-base sm:text-2xl font-handwriting text-[#EAB7D0] mb-3 sm:mb-4 tracking-wide flex items-center justify-center gap-2"
         >
           <span>二十歳の桜</span>
           <span className="text-[#FFF8F1]/50">•</span>
@@ -87,9 +87,9 @@ export function IntroScene({ onEnter }: IntroSceneProps) {
         {/* Scene 1 Hero Opening Reveal: Sunset Reflections in Lavender-Grey Saree */}
         <motion.div
           variants={slideUpVariants}
-          className="mb-8 relative group"
+          className="mb-4 sm:mb-5 relative group"
         >
-          <div className="relative w-56 sm:w-64 md:w-72 p-3 sm:p-3.5 pb-5 rounded-2xl sm:rounded-3xl bg-[#FFFDF9] shadow-[0_20px_50px_rgba(20,10,30,0.6),0_0_30px_rgba(234,183,208,0.25)] border border-[#EAB7D0]/40 transform -rotate-1 hover:rotate-0 hover:scale-[1.03] transition-all duration-300">
+          <div className="relative w-52 sm:w-56 md:w-60 p-3 sm:p-3.5 pb-4 rounded-2xl sm:rounded-3xl bg-[#FFFDF9] shadow-[0_20px_50px_rgba(20,10,30,0.6),0_0_30px_rgba(234,183,208,0.25)] border border-[#EAB7D0]/40 transform -rotate-1 hover:rotate-0 hover:scale-[1.03] transition-all duration-300">
             {/* Elegant gold washi tape accent */}
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-4 bg-gradient-to-r from-[#EAB7D0]/80 via-[#E7CB92]/80 to-[#EAB7D0]/80 rounded-sm shadow-sm backdrop-blur-sm transform rotate-1" />
 
@@ -117,14 +117,14 @@ export function IntroScene({ onEnter }: IntroSceneProps) {
         {/* Supportive Subtext */}
         <motion.p
           variants={slideUpVariants}
-          className="text-sm sm:text-base text-[#FFF8F1]/85 max-w-lg mb-8 font-sans leading-relaxed"
+          className="text-xs sm:text-sm text-[#FFF8F1]/85 max-w-lg mb-4 sm:mb-5 font-sans leading-relaxed"
         >
           Dedicated to a hardworking friend quietly reaching for her medical dreams.
           Step into a Kyoto dreamscape of pastel blossoms, twilight breezes, and cherished memories.
         </motion.p>
 
         {/* Action Button */}
-        <motion.div variants={slideUpVariants}>
+        <motion.div variants={slideUpVariants} className="-translate-y-4 sm:translate-y-0">
           <button
             onClick={onEnter}
             className="group relative inline-flex items-center gap-3 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#EAB7D0] to-[#E7CB92] text-[#30263F] font-semibold text-sm sm:text-base tracking-wide transition-all duration-300 shadow-xl hover:shadow-[#EAB7D0]/30 hover:scale-[1.03] active:scale-[0.98]"

@@ -16,7 +16,7 @@ export function SceneNav({
   onSelectScene,
 }: SceneNavProps) {
   return (
-    <nav aria-label="Experience scenes navigation" className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
+    <nav aria-label="Experience scenes navigation" className="fixed top-3 left-1/2 -translate-x-1/2 z-50">
       <div className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-[#30263F]/75 border border-[#EAB7D0]/25 backdrop-blur-md shadow-xl">
         {Array.from({ length: totalScenes }).map((_, idx) => {
           const isActive = currentScene === idx;

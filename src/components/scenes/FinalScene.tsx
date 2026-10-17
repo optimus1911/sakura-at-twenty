@@ -48,7 +48,7 @@ export function FinalScene({ onReplay }: FinalSceneProps) {
         initial="hidden"
         animate="visible"
         variants={slideUpVariants}
-        className="relative z-10 max-w-xl mx-auto flex flex-col items-center mt-36"
+        className="relative z-10 max-w-xl mx-auto flex flex-col items-center mt-12 sm:mt-16"
       >
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFF8F1]/10 border border-[#EAB7D0]/30 backdrop-blur-md mb-6">
           <Moon className="w-3.5 h-3.5 text-[#EAB7D0]" />

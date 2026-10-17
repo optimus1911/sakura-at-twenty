@@ -16,7 +16,7 @@ export function BirthdayLetter({ onNext }: BirthdayLetterProps) {
   const letterPhoto = BIRTHDAY_CONFIG.photos.scene5Letter;
 
   return (
-    <section aria-label="Birthday letter scene" className="relative w-full min-h-screen py-24 px-6 flex flex-col justify-between items-center bg-gradient-to-b from-[#251C33] via-[#30263F] to-[#20182E] text-[#FFF8F1]">
+    <section aria-label="Birthday letter scene" className="relative w-full min-h-screen py-14 sm:py-16 lg:py-12 px-4 sm:px-6 flex flex-col justify-between items-center bg-gradient-to-b from-[#251C33] via-[#30263F] to-[#20182E] text-[#FFF8F1]">
       {/* Background Ambience */}
       <div className="absolute inset-0 pointer-events-none opacity-25">
         <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-[#EAB7D0] filter blur-3xl" />
@@ -24,7 +24,7 @@ export function BirthdayLetter({ onNext }: BirthdayLetterProps) {
       </div>
 
       {/* Header */}
-      <div className="relative z-10 max-w-xl mx-auto text-center mb-6">
+      <div className="relative z-10 max-w-xl mx-auto text-center mb-4">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -60,7 +60,7 @@ export function BirthdayLetter({ onNext }: BirthdayLetterProps) {
       </div>
 
       {/* Main Container: Envelope/Letter + Floating Memory Card (Photo 7: Black Embroidered Skyline) */}
-      <div className="relative z-10 max-w-5xl w-full flex flex-col lg:flex-row items-center justify-center gap-8 my-auto min-h-[460px]">
+      <div className="relative z-10 max-w-5xl w-full flex flex-col lg:flex-row items-center justify-center gap-4 sm:gap-6 lg:gap-8 my-auto min-h-[360px] lg:min-h-[400px]">
         {/* Memory Card: Photo 7 - Skyline & Embroidered Elegance */}
         <motion.div
           initial={{ opacity: 0, x: -30, rotate: -3 }}
@@ -177,7 +177,7 @@ export function BirthdayLetter({ onNext }: BirthdayLetterProps) {
       </div>
 
       {/* Navigation Footer */}
-      <div className="relative z-10 flex justify-center pt-8">
+      <div className="relative z-10 flex justify-center pt-8 pb-20 sm:pb-0 -translate-y-16 sm:translate-y-0">
         <button
           onClick={onNext}
           className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#EAB7D0] to-[#E7CB92] text-[#30263F] text-xs uppercase tracking-widest font-semibold transition-all duration-300 hover:scale-105 active:scale-95 shadow-xl"

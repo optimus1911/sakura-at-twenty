@@ -142,7 +142,7 @@ export function BirthdayReveal({ onNext }: BirthdayRevealProps) {
       </div>
 
       {/* ─── Center / Bottom: Interactive Wish Choreography ─── */}
-      <div className="relative z-10 pb-16 px-6 max-w-lg mx-auto w-full text-center">
+      <div className="relative z-10 pb-24 sm:pb-16 px-6 max-w-lg mx-auto w-full text-center">
         <AnimatePresence mode="wait">
           {wishState === "idle" && (
             <motion.div

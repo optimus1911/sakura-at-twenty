@@ -8,6 +8,7 @@ import { ThreeCanvas } from "../three/ThreeCanvas";
 import { SakuraWorld } from "../three/SakuraWorld";
 import { BIRTHDAY_CONFIG } from "@/config/birthday-config";
 import { slideUpVariants } from "@/lib/animation-variants";
+import { resolveImagePath } from "@/lib/image-path";
 
 interface SakuraSceneProps {
   onNext: () => void;
@@ -73,7 +74,9 @@ export function SakuraScene({ onNext }: SakuraSceneProps) {
       <div className="absolute inset-0 z-0 overflow-hidden bg-[#180E24]" aria-hidden="true">
         {/* ── 0a: Supplied pathway — covers the viewport without distortion ── */}
         <Image
-          src={pathwayError ? bgPhoto.fallbackPlaceholder : "/images/sakura-pathway-background.png"}
+          src={resolveImagePath(
+            pathwayError ? bgPhoto.fallbackPlaceholder : "/images/sakura-pathway-background.png",
+          )}
           alt=""
           fill
           priority
@@ -134,7 +137,9 @@ export function SakuraScene({ onNext }: SakuraSceneProps) {
       {/* Mobile keeps the figure smaller and grounded; desktop retains its existing frame. */}
       <div className="absolute inset-x-0 top-[38svh] z-[15] flex h-[36svh] items-end justify-center lg:inset-y-0 lg:top-20 lg:bottom-0 lg:left-1/2 lg:right-auto lg:z-0 lg:h-auto lg:w-[min(62vh,54vw)] lg:-translate-x-1/2">
         <Image
-          src={imgError ? bgPhoto.fallbackPlaceholder : "/images/memories/photo-2-bouquet-cutout.png"}
+          src={resolveImagePath(
+            imgError ? bgPhoto.fallbackPlaceholder : "/images/memories/photo-2-bouquet-cutout.png",
+          )}
           alt={bgPhoto.title || "Mansiii holding a vibrant bouquet of flowers"}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 62vh"
