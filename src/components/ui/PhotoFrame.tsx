@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState } from "react";
@@ -14,6 +15,25 @@ interface PhotoFrameProps {
   priority?: boolean;
 }
 
+const BASE_PATH = "/sakura-at-twenty";
+
+function resolveImagePath(path: string): string {
+  // Leave external URLs, data URLs, and other non-root paths unchanged.
+  if (
+    /^(https?:\/\/|data:|blob:)/i.test(path) ||
+    !path.startsWith("/")
+  ) {
+    return path;
+  }
+
+  // Avoid adding the base path twice.
+  if (path === BASE_PATH || path.startsWith(`${BASE_PATH}/`)) {
+    return path;
+  }
+
+  return `${BASE_PATH}${path}`;
+}
+
 export function PhotoFrame({
   src,
   fallbackSrc,
@@ -24,7 +44,7 @@ export function PhotoFrame({
   objectPosition = "center",
   priority = false,
 }: PhotoFrameProps) {
-  const [imgSrc, setImgSrc] = useState(src);
+  const [imgSrc, setImgSrc] = useState(() => resolveImagePath(src));
   const [hasError, setHasError] = useState(false);
 
   const aspectClass = {
@@ -34,12 +54,14 @@ export function PhotoFrame({
     free: "h-full w-full",
   }[aspectRatio];
 
+  const resolvedFallback = resolveImagePath(fallbackSrc);
+
   return (
     <div
       className={`relative overflow-hidden rounded-xl bg-[#30263F]/30 backdrop-blur-sm ${aspectClass} ${className}`}
     >
       <Image
-        src={hasError ? fallbackSrc : imgSrc}
+        src={hasError ? resolvedFallback : imgSrc}
         alt={alt}
         fill
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -52,7 +74,6 @@ export function PhotoFrame({
         onError={() => {
           if (!hasError) {
             setHasError(true);
-            setImgSrc(fallbackSrc);
           }
         }}
       />
